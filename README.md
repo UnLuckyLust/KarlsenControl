@@ -29,7 +29,7 @@
 
 # Warnings and Notes
 - This cmd file is not a Karlsen Wallet, it is a file that can install and run the Karlsen official windows wallet.
-- This cmd will oly use Karlsen official commands for the wallet.
+- This cmd will only use Karlsen official commands for the wallet.
 - All downloads will be done from this github repository or the official Karlsen github repository.
 - There is no operating fee for this file.
 - This cmd file does not save, send, copy or share any information, and intended for use on the local machine only.
