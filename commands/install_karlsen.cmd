@@ -1,7 +1,7 @@
 @REM Written by UnLuckyLust - https://github.com/UnLuckyLust/KarlsenControl
 @echo off
 cls
-echo [7;94m::: SETUP :::[0m[94m Installing Karlsen v1.0.0 >>> [0m
+echo [7;94m::: SETUP :::[0m[94m Installing Karlsen v1.0.0... [0m
 curl --output karlsen.zip -LO https://github.com/karlsen-network/karlsend/releases/download/v1.0.0/karlsend-v1.0.0-win64.zip
 setlocal
 cd /d %~dp0
