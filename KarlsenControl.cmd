@@ -114,36 +114,32 @@ if %shortcut%==true (
 )
 
 cls
-set Version=1.0.0
+set Version=1.1.0
 echo [7;94m::: INFO :::[0m[94m UnLuckyLust - %p_name% - Version %Version% [0m
 echo [7;94m::: INFO :::[0m[94m If you don't have Karlsen Node Running, you must run the command - I - before you can use other commands [0m
-echo [7;94m::: INFO :::[0m[94m If you don't have Karlsen Daemon Running, you must run the command - W - befor you can use other commands [0m
+echo [7;94m::: INFO :::[0m[94m If you don't have Karlsen Daemon Running, you must run the command - D - befor you can use other commands [0m
 echo.
-echo [7;93m:::    Setup Commands    :::[0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mX[0m[95m  - Quit Program [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mS[0m[95m  - Force Quit all Karlsen Processes [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mI[0m[95m  - Index Karlsen UTXOs [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mW[0m[95m  - Start Karlsen Daemon [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m0[0m[95m  - Create New Wallet [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m1[0m[95m  - Create New Address [0m
-echo.
-echo [7;93m:::    Wallet Commands   :::[0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m2[0m[95m  - Show Balance [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m3[0m[95m  - Show Addresses [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m4[0m[95m  - Dump UnEncrypted Data [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m5[0m[95m  - Sweep from Privat Key [0m
-echo.
-echo [7;93m::: Transaction Commands :::[0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m6[0m[95m  - Send Karlsen [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m7[0m[95m  - Sign Transtaction [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m8[0m[95m  - Parse Transtaction [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m9[0m[95m  - Broadcast Transtaction [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93m10[0m[95m - Create UnSigned Transection [0m
-echo.
-echo [7;93m:::    Other Commands    :::[0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mM[0m[95m  - Start Mining Karlsen [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mN[0m[95m  - Show Node Info [0m
-echo [7;95m::: COMMAND :::[0m[95m - [0m[93mD[0m[95m  - Show Dag Block Info [0m
+echo [7;93m::::::::::::::::::: SETUP COMMANDS [0m
+echo [7;95m:::    SETUP    :::[0m[95m -[0m[93m X [0m[95m- Quit Program [0m
+echo [7;95m:::    SETUP    :::[0m[95m -[0m[93m S [0m[95m- Force Quit all Karlsen Processes [0m
+echo [7;95m:::    SETUP    :::[0m[95m -[0m[93m I [0m[95m- Index Karlsen UTXOs [0m
+echo [7;95m:::    SETUP    :::[0m[95m -[0m[93m D [0m[95m- Start Karlsen Daemon [0m
+echo [7;95m:::    INFO     :::[0m[95m -[0m[93m N [0m[95m- Show Node Info [0m
+echo [7;95m:::    INFO     :::[0m[95m -[0m[93m B [0m[95m- Show Dag Block Info [0m
+echo [7;95m:::   MINING    :::[0m[95m -[0m[93m M [0m[95m- Start Mining Karlsen [0m
+echo [7;93m::::::::::::::::::: WALLET COMMANDS [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m C [0m[95m- Create New Wallet [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m R [0m[95m- Restore Wallet from mnemonic [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m A [0m[95m- Add New Receiving Address [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m 1 [0m[95m- Show Balance [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m 2 [0m[95m- Show Addresses [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m 3 [0m[95m- Dump UnEncrypted Data [0m
+echo [7;95m:::   WALLET    :::[0m[95m -[0m[93m 4 [0m[95m- Sweep from Privat Key [0m
+echo [7;95m::: TRANSACTION :::[0m[95m -[0m[93m 5 [0m[95m- Send Karlsen [0m
+echo [7;95m::: TRANSACTION :::[0m[95m -[0m[93m 6 [0m[95m- Sign Transtaction [0m
+echo [7;95m::: TRANSACTION :::[0m[95m -[0m[93m 7 [0m[95m- Parse Transtaction [0m
+echo [7;95m::: TRANSACTION :::[0m[95m -[0m[93m 8 [0m[95m- Broadcast Transtaction [0m
+echo [7;95m::: TRANSACTION :::[0m[95m -[0m[93m 9 [0m[95m- Create UnSigned Transection [0m
 echo.
 
 @REM Commands
@@ -164,51 +160,54 @@ if "%U_COMMAND%"=="S" (
         taskkill /F /IM cmd.exe
     )
 )
-set UTXO_INDEX=false
-if "%U_COMMAND%"=="I" set UTXO_INDEX=true
-if "%U_COMMAND%"=="i" set UTXO_INDEX=true
-if %UTXO_INDEX%==true (
+if "%U_COMMAND%"=="i" set U_COMMAND=I
+if "%U_COMMAND%"=="I" (
     start cmd /k %Karlsen_Folder%/karlsend.exe --utxoindex
 )
-set START_DAEMON=false
-if "%U_COMMAND%"=="w" set START_DAEMON=true
-if "%U_COMMAND%"=="W" set START_DAEMON=true
-if %START_DAEMON%==true (
+if "%U_COMMAND%"=="d" set U_COMMAND=D
+if "%U_COMMAND%"=="D" (
     start cmd /k %Karlsen_Folder%/karlsenwallet.exe start-daemon
 )
-if "%U_COMMAND%"=="0" (
+if "%U_COMMAND%"=="c" set U_COMMAND=C
+if "%U_COMMAND%"=="C" (
     %Karlsen_Folder%/karlsenwallet.exe create
     pause
 )
-if "%U_COMMAND%"=="1" (
+if "%U_COMMAND%"=="r" set U_COMMAND=R
+if "%U_COMMAND%"=="R" (
+    %Karlsen_Folder%/karlsenwallet.exe create -i
+    pause
+)
+if "%U_COMMAND%"=="a" set U_COMMAND=A
+if "%U_COMMAND%"=="A" (
     %Karlsen_Folder%/karlsenwallet.exe new-address
     pause
 )
-if "%U_COMMAND%"=="2" (
+if "%U_COMMAND%"=="1" (
     %Karlsen_Folder%/karlsenwallet.exe balance
     %Karlsen_Folder%/karlsenwallet.exe balance -v
     pause
 )
-if "%U_COMMAND%"=="3" (
+if "%U_COMMAND%"=="2" (
     %Karlsen_Folder%/karlsenwallet.exe show-addresses
     pause
 )
-if "%U_COMMAND%"=="4" (
+if "%U_COMMAND%"=="3" (
     %Karlsen_Folder%/karlsenwallet.exe dump-unencrypted-data
     pause
 )
 set SWEEP_KEY=PRIVET_KEY
 set SWEEP_CONFIRM=false
-if "%U_COMMAND%"=="5" (
+if "%U_COMMAND%"=="4" (
     set /p SWEEP_KEY="[7;96m::: INPUT :::[0m Enter Privat Key to Sweep from > "
 )
-if "%U_COMMAND%"=="5" (
+if "%U_COMMAND%"=="4" (
     echo [7;93m::: INFO :::[0m[93m Sweep Karlsen from Privet key: [0m[96m%SWEEP_KEY%[0m
     set /p SWEEP_CONFIRM="[7;96m::: INPUT :::[0m Send Y to Confirm Sweep > "
 )
 if "%SWEEP_CONFIRM%"=="Y" set SWEEP_CONFIRM=true
 if "%SWEEP_CONFIRM%"=="y" set SWEEP_CONFIRM=true
-if "%U_COMMAND%"=="5" (
+if "%U_COMMAND%"=="4" (
     if %SWEEP_CONFIRM%==true (
     %Karlsen_Folder%/karlsenwallet.exe sweep -k %SWEEP_KEY%
     pause
@@ -217,60 +216,60 @@ if "%U_COMMAND%"=="5" (
 set SEND_AMOUNT=0
 set SEND_TO=WALLET_ADDRESS
 set SEND_CONFIRM=false
-if "%U_COMMAND%"=="6" (
+if "%U_COMMAND%"=="5" (
     set /p SEND_AMOUNT="[7;96m::: INPUT :::[0m Type Amount of Karlsen to Send > "
     set /p SEND_TO="[7;96m::: INPUT :::[0m Karlsen Address to Send the coins > "
 )
-if "%U_COMMAND%"=="6" (
+if "%U_COMMAND%"=="5" (
     echo [7;93m::: INFO :::[0m[93m Sending Amount of [0m[96m%SEND_AMOUNT%[0m[93m Karlsen to Address: [0m[96m%SEND_TO%[0m
     set /p SEND_CONFIRM="[7;96m::: INPUT :::[0m Send Y to Confirm Sending Karlsen > "
 )
 if "%SEND_CONFIRM%"=="Y" set SEND_CONFIRM=true
 if "%SEND_CONFIRM%"=="y" set SEND_CONFIRM=true
-if "%U_COMMAND%"=="6" (
+if "%U_COMMAND%"=="5" (
     if %SEND_CONFIRM%==true (
         %Karlsen_Folder%/karlsenwallet.exe send --send-amount %SEND_AMOUNT% /t %SEND_TO%
         pause
     )
 )
 set SIGN_TRANSACTION=TRANSACTION_ID
-if "%U_COMMAND%"=="7" (
+if "%U_COMMAND%"=="6" (
     set /p SIGN_TRANSACTION="[7;96m::: INPUT :::[0m Enter Transaction ID to Sign > "
 )
-if "%U_COMMAND%"=="7" (
+if "%U_COMMAND%"=="6" (
     %Karlsen_Folder%/karlsenwallet.exe sign --transaction %SIGN_TRANSACTION%
     pause
 )
 set PARSE_TRANSACTION=TRANSACTION_ID
-if "%U_COMMAND%"=="8" (
+if "%U_COMMAND%"=="7" (
     set /p PARSE_TRANSACTION="[7;96m::: INPUT :::[0m Enter Transaction ID to Parse > "
 )
-if "%U_COMMAND%"=="8" (
+if "%U_COMMAND%"=="7" (
     %Karlsen_Folder%/karlsenwallet.exe parse --transaction %PARSE_TRANSACTION%
     pause
 )
 set BROADCAST_TRANSACTION=TRANSACTION_ID
-if "%U_COMMAND%"=="9" (
+if "%U_COMMAND%"=="8" (
     set /p BROADCAST_TRANSACTION="[7;96m::: INPUT :::[0m Enter Transaction ID to Broadcast > "
 )
-if "%U_COMMAND%"=="9" (
+if "%U_COMMAND%"=="8" (
     %Karlsen_Folder%/karlsenwallet.exe broadcast --transaction %BROADCAST_TRANSACTION%
     pause
 )
 set UNSIGNED_SEND_AMOUNT=0
 set UNSIGNED_SEND_TO=WALLET_ADDRESS
 set UNSIGNED_SEND_CONFIRM=false
-if "%U_COMMAND%"=="10" (
+if "%U_COMMAND%"=="9" (
     set /p UNSIGNED_SEND_AMOUNT="[7;96m::: INPUT :::[0m Type Amount of Karlsen to Send > "
     set /p UNSIGNED_SEND_TO="[7;96m::: INPUT :::[0m Karlsen Address to Send the coins > "
 )
-if "%U_COMMAND%"=="10" (
+if "%U_COMMAND%"=="9" (
     echo [7;93m::: INFO :::[0m[93m This UnSigned Transaction will send Amount of [0m[96m%UNSIGNED_SEND_AMOUNT%[0m[93m Karlsen to Address: [0m[96m%UNSIGNED_SEND_TO%[0m
     set /p UNSIGNED_SEND_CONFIRM="[7;96m::: INPUT :::[0m Send Y to Confirm UnSigned Karlsen Transaction > "
 )
 if "%UNSIGNED_SEND_CONFIRM%"=="Y" set UNSIGNED_SEND_CONFIRM=true
 if "%UNSIGNED_SEND_CONFIRM%"=="y" set UNSIGNED_SEND_CONFIRM=true
-if "%U_COMMAND%"=="10" (
+if "%U_COMMAND%"=="9" (
     if %UNSIGNED_SEND_CONFIRM%==true (
         %Karlsen_Folder%/karlsenwallet.exe create-unsigned-transaction --send-amount %UNSIGNED_SEND_AMOUNT% /t %UNSIGNED_SEND_TO%
         pause
@@ -298,8 +297,8 @@ if "%U_COMMAND%"=="N" (
     %Karlsen_Folder%/karlsenctl.exe GetInfo
     pause
 )
-if "%U_COMMAND%"=="d" set U_COMMAND=D
-if "%U_COMMAND%"=="D" (
+if "%U_COMMAND%"=="b" set U_COMMAND=B
+if "%U_COMMAND%"=="B" (
     %Karlsen_Folder%/karlsenctl.exe GetBlockDagInfo
     pause
 )
